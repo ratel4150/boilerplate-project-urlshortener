@@ -32,9 +32,11 @@ accountRoutes.post('/api/shorturl', (req, res) => {
     
 })
 
-accountRoutes.get('/urls/list', (req, res) => {
+accountRoutes.get('/api/shorturl/:id', (req, res) => {
+  const id=Number(req.params.id)
     const accounts = getAccountData()
-    res.send(accounts)
+    console.log(id)
+    res.send(accounts[id].url)
   })
 
 module.exports = accountRoutes
